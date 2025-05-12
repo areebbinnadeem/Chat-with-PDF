@@ -56,6 +56,10 @@ def get_conversation_chain(vectorstore):
     return conversation_chain
 
 def handle_userinput(user_question):
+    if st.session_state.conversation is None:
+        st.error("Please upload and process the PDF files first.")
+        return
+    
     response = st.session_state.conversation({'question': user_question})
     st.session_state.chat_history = response['chat_history']
 
@@ -66,6 +70,7 @@ def handle_userinput(user_question):
         else:
             st.write(bot_template.replace(
                 "{{MSG}}", message.content), unsafe_allow_html=True)
+
 
 def main():
     load_dotenv()
