@@ -10,6 +10,10 @@ from langchain.llms import HuggingFaceHub
 from htmlTemplates import css, bot_template, user_template
 import pinecone
 
+import os
+os.environ['TRANSFORMERS_OFFLINE'] = '0'
+os.environ['HF_TIMEOUT'] = '300'
+
 # Initialize Pinecone
 pinecone.init(api_key="YOUR_PINECONE_API_KEY", environment="YOUR_PINECONE_ENV")
 
@@ -32,7 +36,8 @@ def get_text_chunks(text):
     return chunks
 
 def get_vectorstore(text_chunks):
-    embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl")
+    # Use a smaller model to reduce loading time
+    embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-base")
     index_name = "pdf-chat"
 
     # Check if the index already exists, if not, create it
