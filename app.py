@@ -11,6 +11,7 @@ from htmlTemplates import css, bot_template, user_template
 import pinecone
 
 import os
+os.environ['TRANSFORMERS_CACHE'] = 'F:/huggingface_cache'
 os.environ['TRANSFORMERS_OFFLINE'] = '0'
 os.environ['HF_TIMEOUT'] = '300'
 
