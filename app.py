@@ -10,7 +10,8 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 import os
 
 # Load environment variables first
-load_dotenv()
+if os.path.exists('.env'):
+    load_dotenv()
 
 # Set modern environment variables (replaces TRANSFORMERS_CACHE)
 os.environ['HF_HOME'] = 'F:/huggingface_cache'
@@ -86,7 +87,7 @@ def get_vectorstore(text_chunks):
 def get_conversation_chain(vectorstore):
     llm = ChatGoogleGenerativeAI(
         model="gemini-1.5-flash",
-        google_api_key=os.getenv("GEMINI_API_KEY"),
+        google_api_key = os.getenv("GEMINI_API_KEY") or st.secrets.get("GEMINI_API_KEY"),
         temperature=0.5,
         max_output_tokens=2048,
         convert_system_message_to_human=True  # Add this line
