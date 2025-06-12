@@ -8,6 +8,6 @@ langchain-community==0.0.38
 faiss-cpu==1.11.0
 sentence-transformers==4.1.0
 huggingface-hub==0.23.0
-torch==2.7.0+cu118
+torch==2.2.2
 torchvision==0.22.0+cu118
 torchaudio==2.7.0+cu118
