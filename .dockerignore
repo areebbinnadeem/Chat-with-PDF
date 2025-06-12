@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+*.pkl
+*.pt
+*.pdf
+*.zip
+*.tar.gz
+*.ipynb
+.vscode/
+.venv/
+.env/
+*.egg-info/
+datasets/
+models/
+cache/
+.cache/
+*.md
