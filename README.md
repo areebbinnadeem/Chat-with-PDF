@@ -2,7 +2,7 @@
 
 PDFBot is a Streamlit-based AI assistant that allows users to chat with multiple PDF documents simultaneously. It leverages Google's **Gemini Pro** model and **FAISS** for efficient semantic search, enabling multi-turn contextual conversations over large volumes of text.
 
-![PDFBot Screenshot](assets/pdfbot.png)
+![PDFBot Screenshot](assets\pdfbot.PNG)
 
 ---
 
